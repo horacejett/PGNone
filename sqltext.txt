@@ -1,0 +1,10 @@
+select distinct b.SEQ,a.PROID_STK850 作品ID,A.F003V_STK850 类型 
+from stk850 a,stk854 b,stk857 c 
+where a.isvalid=1 
+and b.isvalid=1 
+and c.isvalid=1 
+and c.rtime>=CURRENT_DATE-7 
+and a.PROID_STK850=b.PROID_STK854 
+and a.F003V_STK850 not in ('电视剧','网络剧','动画','综艺节目','网络大电影') 
+and c.VSEQ_STK857=b.seq 
+ORDER BY 3 desc
